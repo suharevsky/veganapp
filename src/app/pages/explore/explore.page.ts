@@ -43,8 +43,8 @@ export class ExplorePage implements OnInit {
     ngOnInit() {
 
         if ( this.routerService.getParams()) {
-            this.params = {
-                action: '', filter: 'lastActivity', page: 1, list: this.routerService.getParams().list,
+            // @ts-ignore
+            this.params = { action: '', filter: 'lastActivity', page: 1, list: this.routerService.getParams().list,
                 usersCount: 20, searchparams:
                     {region: '', agefrom: 0, ageto: 0, userNick: ''}
             };
@@ -129,7 +129,7 @@ export class ExplorePage implements OnInit {
             user_id
         });
 
-        this.http.post(route, params, this.httpService.setHeaders(true, this.userService)).subscribe((data: any) => {
+        this.http.post(route, params, this.httpService.setHeaders(true, this.userService)).subscribe(() => {
             // API call goes here
             setTimeout(() => {
                 this.elementRef.nativeElement.querySelector(`div.stackedcards`)
@@ -138,13 +138,13 @@ export class ExplorePage implements OnInit {
                 this.isLoading = false;
                 // We only need 2 cards visible on the card stack UI
             }, 2000);
-        }, err => {
+        }, () => {
             this.navCtrl.navigateBack('/landing');
         });
 
         this.http.post(route, this.paramsStr, this.httpService.setHeaders(true, this.userService)).subscribe((data: any) => {
             this.users = data.users;
-        }, err => {
+        }, () => {
             this.navCtrl.navigateBack('/landing');
         });
     }
