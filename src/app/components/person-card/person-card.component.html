@@ -1,0 +1,21 @@
+<div
+  class="person-card background-img"
+  [style.backgroundImage]="'url(' + configService.getBaseUrl() + data.photo + ')'">
+  <div class="card-caption">
+    <ion-row class="ion-align-items-end">
+      <ion-col class="caption-text">
+        <div class="caption-title">
+          {{data.username}}, {{data.age}}
+        </div>
+        <div class="caption-time">
+          15h left
+        </div>
+      </ion-col>
+      <!--<ion-col size="auto">
+        <ion-button color="white" class="button-custom button-icon button-xs button-star">
+          <ion-icon slot="icon-only" name="star"></ion-icon>
+        </ion-button>
+      </ion-col>-->
+    </ion-row>
+  </div>
+</div>

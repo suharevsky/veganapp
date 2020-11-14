@@ -1,0 +1,26 @@
+@import 'chatui';
+
+.header-custom {
+  ion-toolbar {
+    --min-height: 66px;
+  }
+}
+
+ion-title {
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-photo {
+  width: 46px;
+  height: 46px;
+  background-size: cover !important;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.user-name {
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--ion-color-medium);
+}

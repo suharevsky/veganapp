@@ -1,0 +1,72 @@
+.header-title {
+  text-align: center;
+  margin: 24px auto 16px;
+  font-size: 20px;
+}
+
+.slides-intro {
+  min-height: 100px;
+}
+
+.price-plans {
+  display: flex;
+  justify-content: center;
+}
+
+.pulse-btn {
+	transform: scale(1);
+  animation: pulse 2s infinite;
+  border-radius: 50px;
+}
+
+.price-tag {
+  flex: 1;
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 16px;
+  border-radius: var(--swipe-card-border-radius);
+  background-color: rgba(var(--ion-color-gold-rgb), 0.1);
+  transform: scale(0.8);
+
+  &.active {
+    border: 1px solid var(--ion-color-gold);
+    transform: scale(1);
+  }
+
+  .plan-name {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .number-big {
+    font-size: 36px;
+  }
+}
+
+.button-group {
+  text-align: center;
+  margin-bottom: 16px;
+
+  ion-button {
+    min-width: 240px;
+  }
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(150,170,180,0.5);
+
+	}
+
+	70% {
+		transform: scale(1);
+    box-shadow: 0 7px 15px -5px rgba(150,170,180,0.5);
+	}
+
+	100% {
+		transform: scale(0.95);
+    //box-shadow: 0 0 0 0 rgba(145,124,39,1);
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+	}
+}

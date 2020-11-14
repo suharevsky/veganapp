@@ -1,0 +1,35 @@
+<ion-content force-overscroll="false">
+    <div class="header"></div>
+    <div class="bg-white">
+        <div class="inner-content">
+            <h1>Contact Us</h1>
+            <p class="description">Feel free to ask any questions</p>
+            <div class="form">
+                <ion-input *ngIf="!logged_in" [(ngModel)]="form.email.value" (ionFocus)="this.uiComponent.focusIn()"
+                           (focusout)="this.uiComponent.focusOut()" placeholder="Your Email" type="email">
+                    <!--
+                                        <ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>
+                    -->
+                </ion-input>
+                <div class="err">{{ errors.email }}</div>
+
+                <ion-input [(ngModel)]="form.subject.value" (ionFocus)="this.uiComponent.focusIn()"
+                           (focusout)="this.uiComponent.focusOut()" placeholder="Subject" type="text">
+
+                    <!--
+                                        <ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>
+                    -->
+                </ion-input>
+                <div class="err">{{ errors.subject }}</div>
+                <ion-textarea rows="4" [(ngModel)]="form.text.value" placeholder="Please describe your problem here...">
+                </ion-textarea>
+                <ion-button (click)="formSubmit()">Send Form</ion-button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="btn-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+    </div>
+</ion-content>

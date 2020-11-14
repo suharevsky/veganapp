@@ -1,0 +1,13 @@
+.ion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 22px 14px;
+}
+
+ion-button {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

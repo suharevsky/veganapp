@@ -1,0 +1,63 @@
+<ion-header class="header-custom">
+  <ion-toolbar class="toolbar-no-border bg-primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="modalCtrl.dismiss()" color="primary">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="user-photo"
+           [ngStyle]="{background: 'url(' + httpService.config.baseUrl + receiver.photo + ')'}"></div>
+      <div class="user-name">{{receiver.username}}</div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        <ion-icon slot="icon- only" name="videocam-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content class="ion-padding bg-primary">
+  <div class="wrapper ion-text-center text-sm text-muted">
+    YOU MATCHED WITH TINDIE ON 14/11/2019
+  </div>
+
+  <div class="chat-list">
+    <div class="chat-item" *ngFor="let message of messages" [ngClass]="{'chat-item-sender': message.isSender}">
+      <div class="chat-timestamp">
+        {{message.dateTime}}
+      </div>
+
+      <div class="chat-item-content">
+        <div class="chat-avatar" *ngIf="!message.isSender">
+          <div class="user-photo"
+               [ngStyle]="{background: 'url(' + httpService.config.baseUrl + receiver.photo + ')'}"></div>
+        </div>
+
+        <div class="chat-item-bubble" [ngClass]="{'bubble-image': message.type == 'image'}">
+          <div class="chat-body" *ngIf="message.type !== 'image'" [innerHtml]="message.text | nlbr"></div>
+          <img [src]="message.body" *ngIf="message.type == 'image'">
+        </div>
+
+        <div class="chat-item-reaction" *ngIf="!message.isSender && message.type == 'image'">
+          <ion-icon name="heart-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="chat-item-status" *ngIf="message.isSender">
+        <ion-icon name="eye-outline" color="gold"></ion-icon>
+        Seen
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="toolbar-no-border bg-primary">
+    <input-with-giphy
+      (onSubmit)="onSubmitMessage($event)"
+      (onSizeChange)="onInputSizeChange()">
+    </input-with-giphy>
+  </ion-toolbar>
+</ion-footer>

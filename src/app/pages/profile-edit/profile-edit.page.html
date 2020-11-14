@@ -1,0 +1,228 @@
+<ion-header class="header-custom">
+  <ion-toolbar>
+    <ion-title>Edit Info</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="close()">
+        Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar class="toolbar-no-border">
+    <ion-segment class="segment-custom" [(ngModel)]="segmentView" mode="md">
+      <ion-segment-button value="0">
+        <ion-label>
+          Edit
+        </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>
+          Preview
+        </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-muted">
+  <div [ngSwitch]="segmentView" class="full-height">
+    <!-- EDIT -->
+    <div class="segment-view" *ngSwitchCase="'0'">
+      <div class="photos-edit">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="8" class="photo-item no-photo">
+              <div class="photo-image background-img"></div>
+              <div class="photo-button photo-button-invert">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col size="4/1" class="photo-item no-photo">
+              <div class="photo-image background-img"></div>
+              <div class="photo-button photo-button-invert">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col size="4" class="photo-item no-photo">
+              <div class="photo-image background-img"></div>
+              <div class="photo-button photo-button-invert">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="photo-item no-photo">
+              <div class="photo-image background-img"></div>
+              <div class="photo-button photo-button-invert">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col class="photo-item no-photo">
+              <div class="photo-image background-img"></div>
+              <div class="photo-button photo-button-invert">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col class="photo-item no-photo">
+              <div class="photo-image background-img"></div>
+              <div class="photo-button photo-button-invert">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>PHOTO OPTIONS</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-label>Smart Photos</ion-label>
+          <ion-toggle color="primary" checked="true"></ion-toggle>
+        </ion-item>
+        <ion-list-header class="help-block">
+          <ion-label color="medium">
+            Smart Photos continuously tests all your profile photos and picks the best one to show first.
+          </ion-label>
+        </ion-list-header>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>ABOUT ME</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-textarea rows="3" [(ngModel)]="aboutMe"></ion-textarea>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-note slot="end">
+            {{ 500 - aboutMe.length }}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>JOB TITLE</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-input rows="1" value="Average Tindered"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>COMPANY</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-input rows="1" value="Take That Design"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>SCHOOL</ion-label>
+        </ion-list-header>
+        <ion-item detail="true" lines="none">
+          <ion-label>Add School</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>SNAPCHAT</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-icon name="logo-snapchat" slot="start"></ion-icon>
+          <ion-label>Bitmoji Keyboard</ion-label>
+          <ion-note color="primary" class="text-sm">
+            <strong>CONNECT</strong>
+          </ion-note>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>INSTAGRAM PHOTOS</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-icon name="logo-instagram" color="danger" slot="start"></ion-icon>
+          <ion-label>Connect Instagram</ion-label>
+          <ion-note color="primary" class="text-sm">
+            <strong>CONNECT</strong>
+          </ion-note>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>SPOTIFY ANTHEM</ion-label>
+        </ion-list-header>
+        <ion-item detail="true" lines="none">
+          <ion-icon name="logo-rss" color="success" slot="start"></ion-icon>
+          <ion-label>
+            <div>Sunday Morning</div>
+            <div class="text-sm">Maroon 5</div>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>TOP SPOTIFY ARTIST</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-icon name="logo-rss" color="sucess" slot="start"></ion-icon>
+          <ion-label>Connect Spotify</ion-label>
+          <ion-note color="primary" class="text-sm">
+            <strong>CONNECT</strong>
+          </ion-note>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>GENDER</ion-label>
+        </ion-list-header>
+        <ion-item detail="true" lines="none">
+          <ion-label>Man</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom">
+        <ion-list-header>
+          <ion-label>FEED SETTINGS</ion-label>
+        </ion-list-header>
+        <ion-item detail="true" lines="none">
+          <ion-label>Shared Content</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom last-child">
+        <ion-list-header>
+          <ion-label>CONTROL YOUR PROFILE <ion-text color="primary">· Tinder Plus</ion-text></ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Don't Show My Age</ion-label>
+          <ion-toggle color="primary" checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>Don't Show My Distance</ion-label>
+          <ion-toggle color="primary" checked="false"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="segment-view preview-container full-height" *ngSwitchCase="'1'">
+      <div class="card-border full-height" *ngIf="showSlides">
+        <swipe-card
+          [data]="meData"
+          [isPreview]="true"
+          (onNoMoreSlide)="onNoMoreSlide($event)">
+        </swipe-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

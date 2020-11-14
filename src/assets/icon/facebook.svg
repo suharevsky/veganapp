@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+<title>Icons/icon-facebook</title>
+<g fill="none" fill-rule="evenodd">
+<g transform="translate(-105 -674)">
+<rect width="375" height="812" fill="#0C0D34"/>
+<g transform="translate(105 674)" fill-rule="nonzero">
+<rect width="44" height="44" rx="22" fill="#F6F6F6"/>
+<path d="m23.067 31v-8.2107h2.7559l0.41266-3.1998h-3.1686v-2.0429c0-0.92643 0.25725-1.5578 1.5857-1.5578l1.6944-7.405e-4v-2.862c-0.29304-0.038996-1.2989-0.12612-2.4691-0.12612-2.443 0-4.1155 1.4912-4.1155 4.2297v2.3598h-2.763v3.1998h2.763v8.2107h3.3044z" fill="#3C5A99"/>
+</g>
+</g>
+</g>
+</svg>

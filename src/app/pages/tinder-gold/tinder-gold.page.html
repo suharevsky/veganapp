@@ -1,0 +1,57 @@
+<ion-content force-overscroll="false" scrollY="false" class="bg-muted">
+  <div class="header-title">
+    <ion-text color="gold"><strong>Get Tinder Gold</strong></ion-text>
+  </div>
+  <div class="slides-intro">
+    <plus-intro *ngIf="showSlides"></plus-intro>
+  </div>
+
+  <div class="price-plans">
+  <div class="price-tag">
+    <div class="plan-name">
+      <div class="number-big">1</div>
+      <div><strong>month</strong></div>
+      <ion-text color="medium">$4.95/mo</ion-text>
+    </div>
+    <div class="total">
+      <div class="text-lg"><strong>$4.95</strong></div>
+    </div>
+  </div>
+
+  <div class="price-tag active">
+    <div class="plan-name">
+      <div class="number-big">1</div>
+      <div><strong>month</strong></div>
+      <ion-text color="medium">$4.95/mo</ion-text>
+    </div>
+    <div class="total">
+      <div class="text-lg"><strong>$4.95</strong></div>
+    </div>
+  </div>
+
+  <div class="price-tag">
+    <div class="plan-name">
+      <div class="number-big">1</div>
+      <div><strong>month</strong></div>
+      <ion-text color="medium">$4.95/mo</ion-text>
+    </div>
+    <div class="total">
+      <div class="text-lg"><strong>$4.95</strong></div>
+    </div>
+  </div>
+</div>
+
+  <div class="button-group">
+    <div>
+      <ion-button shape="round" color="gold" class="pulse-btn">
+        <strong>CONTINUE</strong>
+      </ion-button>
+    </div>
+
+    <div>
+      <ion-button fill="clear" shape="round" color="medium" (click)="close()">
+        <strong>No Thanks</strong>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

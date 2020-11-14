@@ -1,0 +1,37 @@
+<ion-content force-overscroll="false">
+    <div class="header"></div>
+    <div class="bg-white">
+        <div class="inner-content">
+            <h1>Welcome <span *ngIf="!isNewUser">back</span></h1>
+            <p class="description">Use your credentials below and login to your account</p>
+            <div class="form">
+                <ion-input (ionFocus)="this.uiComponent.focusIn()" (focusout)="this.uiComponent.focusOut()"
+                           placeholder="Your Email" type="email">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <!--
+                                        <ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>
+                    -->
+                </ion-input>
+                <ion-input (ionFocus)="this.uiComponent.focusIn()" (focusout)="this.uiComponent.focusOut()"
+                           placeholder="Your Password" type="password">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <!--<ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>-->
+                </ion-input>
+                <div class="two-elements">
+                    <span class="highlight" (click)="getPage('forgot-password')">Forgot password</span>
+                </div>
+                <button class="ion-activatable ripple-parent">Log into your account
+                    <ion-ripple-effect></ion-ripple-effect>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="social">
+            <img src="../../../assets/icon/facebook.svg" alt="facebook">
+            <img src="../../../assets/icon/google.svg" alt="google">
+            <img src="../../../assets/icon/apple.svg" alt="apple">
+        </div>
+        <p (click)="getPage('register')">Don't have an account? <span class="highlight">Sign Up here</span></p>
+    </div>
+</ion-content>

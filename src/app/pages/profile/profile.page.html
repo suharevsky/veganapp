@@ -1,0 +1,73 @@
+<ion-content [scrollEvents]="true" (ionScroll)="handleScroll($event)" class="profile-page">
+  <div class="profile-header">
+    <profile-image-slides *ngIf="showSlides" [images]="user.photos"></profile-image-slides>
+    <div class="btn-back" vertical="bottom" horizontal="end" edge slot="fixed">
+      <ion-button color="white" class="button-custom button-icon button-sm button-brand" (click)="close()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div data-aos="fade-bottom" class="profile-info border-bottom">
+    <div class="profile-title">
+      <h2 class="profile-user-name">
+        {{user.username}}
+        <span class="profile-user-age">{{user.age}}</span>
+      </h2>
+    </div>
+    <div *ngIf="user.job_title" class="profile-user-info">
+      <div class="info-item">
+        💼 {{user.job_title}}
+      </div>
+    </div>
+  </div>
+
+  <div data-aos="fade-bottom" *ngIf="user.form.about.value" class="profile-anthem border-bottom">
+    <div class="section-title">About {{user.username}}</div>
+    {{user.form.about.value}}
+  </div>
+
+  <div data-aos="fade-bottom" class="profile-anthem border-bottom">
+    <div class="section-title">Other Info</div>
+    <span class="bubble"><span class="smile">🔎</span>{{user.form.looking.value}}</span>
+  </div>
+
+  <div *ngIf="user.form.city.value" data-aos="fade-bottom" class="profile-anthem border-bottom">
+    <div class="section-title">Current Location</div>
+    {{user.form?.city.value}}
+  </div>
+
+
+  <!--<div class="profile-share border-bottom">
+    <ion-button fill="clear" expand="block" color="primary" size="small">
+      <div class="button-label">
+        <div>SHARE HIEU PHAM'S PROFILE</div>
+        <div class="text-xxs">SEE WHAT A FRIEND THINKS</div>
+      </div>
+    </ion-button>
+  </div>-->
+
+  <div class="profile-footer border-bottom">
+    <ion-button (click)="block()" class="btn-report" fill="clear" expand="block" color="medium" size="small">
+      <ion-icon name="close-circle-outline"></ion-icon>
+      <div *ngIf="user.isAddBlackListed === false" class="button-label">
+        BLOCK {{user.username}}
+      </div>
+      <div *ngIf="user.isAddBlackListed" class="button-label">
+        UNBLOCK {{user.username}}
+      </div>
+    </ion-button>
+  </div>
+
+  <ion-fab class="bottom-actions" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-button color="white" class="button-custom button-icon button-dislike button-lg">
+      <ion-icon slot="icon-only" name="close-sharp"></ion-icon>
+    </ion-button>
+    <ion-button color="white" class="button-custom button-icon button-star">
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+    <ion-button color="white" class="button-custom button-icon button-like button-lg">
+      <ion-icon slot="icon-only" name="heart-sharp"></ion-icon>
+    </ion-button>
+  </ion-fab>
+</ion-content>

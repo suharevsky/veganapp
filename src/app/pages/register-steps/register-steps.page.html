@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>register-steps</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-slides [options]="slideOpts" #slides>
+        <ion-slide>
+            <div class="options">
+                <div class="option">
+                    <h2>I'm ... </h2>
+                    <div class="smileys-items">
+                        <div class="smile-item">
+                            <div class="smile">👨</div>
+                            <span>Male</span>
+                        </div>
+                        <div class="smile-item">
+                            <div class="smile">👩</div>
+                            <span>Female</span>
+                        </div>
+                        <div class="smile-item">
+                            <div class="smile">🦄</div>
+                            <span>Non-binary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option">
+                    <h2>I'm looking for a ... </h2>
+                    <div class="smileys-items">
+                        <div class="smile-item">
+                            <div class="smile">👨</div>
+                            <span>Male</span>
+                        </div>
+                        <div class="smile-item">
+                            <div class="smile">👩</div>
+                            <span>Female</span>
+                        </div>
+                        <div class="smile-item">
+                            <div class="smile">🦄</div>
+                            <span>Non-binary</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-slide>
+      <ion-slide class="input-slide">
+        <ion-item>
+          <ion-label position="stacked"><h2>Your First Name</h2></ion-label>
+          <ion-input class="name-input" type="text" placeholder="Enter your first name"></ion-input>
+        </ion-item>
+      </ion-slide>
+      <ion-slide class="input-slide">
+        <ion-item>
+          <ion-label position="stacked"><h2>Your Email</h2></ion-label>
+          <ion-input type="email" placeholder="Enter your email"></ion-input>
+        </ion-item>
+      </ion-slide>
+      <ion-slide class="input-slide">
+        <ion-item>
+          <ion-label position="stacked"><h2>Your Password</h2></ion-label>
+          <ion-input type="{{this.user.password.type}}" placeholder="Enter your password">
+            <ion-icon (click)="inputType(false)"  *ngIf="this.user.password.type === 'password'" name="eye-outline"></ion-icon>
+            <ion-icon (click)="inputType(true)" *ngIf="this.user.password.type === 'text'" slot="start" name="eye-off-outline"></ion-icon>
+          </ion-input>
+        </ion-item>
+      </ion-slide>
+      <ion-slide class="input-slide">
+        <ion-item>
+          <ion-label position="stacked"><h2>Your date of birth</h2></ion-label>
+          <ion-datetime autofocus="autofocus" value="1999-12-31"></ion-datetime>
+        </ion-item>
+      </ion-slide>
+      <ion-slide>
+        <h2>Your education degree is ...</h2>
+      </ion-slide>
+      <ion-slide>
+        <h2>I'm working in ...</h2>
+      </ion-slide>
+    </ion-slides>
+</ion-content>
+<ion-footer>
+  <ion-button (click)="slideNext()" class="btn-form">Continue</ion-button>
+</ion-footer>

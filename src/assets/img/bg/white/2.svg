@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="542px" viewBox="0 0 375 542" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg</title>
+    <g id="UI-KIT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M60,-92 L315,-92 C348.137085,-92 375,-65.137085 375,-32 L375,289.790703 C375,333.973483 339.18278,369.790703 295,369.790703 L80,369.790703 C35.81722,369.790703 5.34524576e-14,405.607923 0,449.790703 L0,542 L0,542 L0,-32 C-4.05812251e-15,-65.137085 26.862915,-92 60,-92 Z" id="bg" fill="#FFFFFF" fill-rule="nonzero" transform="translate(187.500000, 225.000000) scale(1, -1) translate(-187.500000, -225.000000) "></path>
+    </g>
+</svg>

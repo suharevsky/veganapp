@@ -1,0 +1,159 @@
+@import '../../../sass/helper';
+
+:host {
+  --border-color-rgb: rgba(var(--ion-color-medium-rgb), 0.1);
+}
+
+.btn-report ion-icon {
+  margin-right: 12px;
+}
+.btn-back {
+  top: 12px;
+  left: 8px;
+  position: fixed;
+  z-index: 9999;
+
+  button {
+    border: 1px solid #fff;
+
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border-color-rgb);
+}
+
+.profile-header {
+  height: 70vh;
+  min-height: 400px;
+  position: relative;
+}
+
+.profile-info {
+  padding: 16px;
+
+  .profile-title {
+    margin-bottom: 8px;
+  }
+
+  .profile-user-name {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .profile-user-info {
+    line-height: 1.4em;
+    font-size: 16px;
+    color: var(--ion-color-medium);
+
+    .info-item {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 4px;
+
+      ion-icon {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.profile-intro {
+  padding: 4px 16px;
+  line-height: 1.4em;
+  font-size: 16px;
+  color: var(--ion-color-medium);
+}
+
+.profile-anthem {
+  padding: 16px;
+  line-height: 1.4em;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+
+.profile-share, .profile-footer {
+  text-align: center;
+  padding: 8px;
+
+  ion-button {
+    height: 2.5em;
+  }
+
+  .button-label {
+    letter-spacing: 1px;
+    line-height: 1.4em;
+  }
+}
+
+.bubble {
+  padding: 8px 12px;
+  background: #efefef;
+  border-radius: 20px;
+  .smile {
+    margin: 0 4px;
+  }
+}
+
+.profile-footer {
+  margin-bottom: 140px;
+}
+
+.bottom-actions {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-inline-start: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 16px;
+  background-image: linear-gradient(to top, rgba(40, 50, 60, 0.4) 0%, rgba(40, 50, 60, 0) 40%);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in 0.5s forwards;
+
+  .button-custom {
+    margin: 0 12px;
+  }
+
+  .button-lg ion-icon {
+    font-size: 36px;
+  }
+
+  ion-button {
+    &.button-dislike ion-icon {
+      color: var(--color-button-dislike);
+    }
+    &.button-star ion-icon {
+      color: var(--color-button-star);
+    }
+    &.button-like ion-icon {
+      color: var(--color-button-like);
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .button-custom.button-icon.button-sm {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+

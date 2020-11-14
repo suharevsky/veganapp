@@ -1,0 +1,32 @@
+
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title>Notifications</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Notifications</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-item">
+    <ion-label> {{ form.is_sent_email.label }} </ion-label>
+    <ion-toggle slot="start" (ionChange)="submit()" [(ngModel)]="form.is_sent_email.value" color="primary" checked="false"></ion-toggle>
+  </div>
+  <div class="ion-item border-top">
+    <ion-label> {{ form.is_sent_push.label }} </ion-label>
+    <ion-toggle slot="start" (ionChange)="submit()" [(ngModel)]="form.is_sent_push.value" color="primary" checked="false"></ion-toggle>
+  </div>
+  <div class="border-top">
+    <ion-button expand="full" color="primary"  (click)="submit()">{{ form.submit }}</ion-button>
+  </div>
+</ion-content>

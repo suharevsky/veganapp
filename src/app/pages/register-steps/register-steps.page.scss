@@ -1,0 +1,66 @@
+ion-slides {
+  height: 100%;
+}
+
+ion-icon {
+  order: 1;
+}
+
+.btn-form {
+  margin: 12px auto;
+}
+
+h2 {
+  font-weight: bold;
+  text-align: left;
+  padding: 20px;
+}
+
+.options {
+  width: 100%;
+}
+
+.option {
+  width: 100%;
+  font-weight: bold;
+  margin: 84px 0px;
+}
+
+.smile {
+  font-size: 42px;
+}
+
+.input-slide {
+  justify-content: flex-start;
+}
+ion-input {
+  border-bottom: 2px solid #0C0D34;
+  font-size: 20px;
+  &.has-focus {
+    border-bottom: 2px solid #2CB9B0;
+  }
+}
+
+ion-item {
+  width: 80%;
+  align-self: flex-start;
+  h2 {
+    padding: 0;
+    font-size: 22px;
+  }
+}
+
+.smileys-items {
+  display: flex;
+  justify-content: space-around;
+  .smile-item {
+    flex: 0 0 30%;
+    margin: 1%;
+    border-radius: 8px;
+    border: 1px dashed #d4d4d4;
+
+    &.active {
+      border: 2px solid #0C0D34;
+    }
+  }
+}

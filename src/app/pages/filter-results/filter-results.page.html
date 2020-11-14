@@ -1,0 +1,44 @@
+<ion-content force-overscroll="false" scrollY="false">
+    <div class="header-title">
+        <ion-text><h2>Filters</h2></ion-text>
+    </div>
+
+    <div class="search-container">
+
+        <!-- <div class="border-top">
+             {{form?.ageTo.label}} {{ form?.ageTo.value }}
+         </div>-->
+
+        <ion-item>
+            <ion-label><h3>Distance: <span *ngIf="distance > 0">{{distance}} km</span></h3></ion-label>
+            <ion-toggle></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-range min="1" max="200" [(ngModel)]="distance.value" (ionChange)="getDistance($event)" pin
+                       color="secondary">
+                <span slot="start">From</span>
+                <span slot="end">To</span>
+            </ion-range>
+        </ion-item>
+
+        <ion-item>
+            <ion-label><h3 *ngIf="distance.isActive">
+                Age: <span *ngIf="age.lower > 0 && age.upper > 0">{{age.lower}} - {{age.upper}}</span>
+            </h3>
+                <h3 *ngIf="!distance.isActive">Age: Unlimited</h3></ion-label>
+            <ion-toggle [(ngModel)]="distance.isActive"></ion-toggle>
+
+        </ion-item>
+        <ion-item *ngIf="distance.isActive">
+            <ion-range id="dual-range" [(ngModel)]="age" (ionChange)="getAge($event)" dual-knobs min="18" max="100" pin
+                       color="secondary">
+                <span slot="start">From</span>
+                <span slot="end">To</span>
+            </ion-range>
+        </ion-item>
+
+        <ion-button (click)="toSearchResultsPage('search-form-1')" class="search-1 btn-form">Save
+            Filters
+        </ion-button>
+    </div>
+</ion-content>

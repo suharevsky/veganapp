@@ -1,0 +1,153 @@
+.header {
+  display: block;
+  width: 100%;
+  background: #0C0D34;
+  background-size: 100%;
+
+  height: 100%;
+}
+
+ion-toolbar {
+  --background: #0C0D34;
+}
+
+.inner-content {
+  width: 100%;
+}
+
+.bg-white {
+  height: 75%;
+  top: 50%;
+}
+
+ion-toolbar {
+  ion-icon {
+    width: 16px;
+    height: 16px;
+    padding: 8px;
+    color: #fff;
+    border-radius: 50px;
+    margin: 8px;
+    background: rgb(104 105 132 / 71%);
+  }
+}
+
+.me-header {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 999;
+
+  ion-avatar {
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+  }
+
+  .me-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0c0e35;
+  }
+}
+
+.subscription-bar {
+  box-shadow: 0 12px 28px #50c4a073, 0 4px 12px #5bc7a89e;
+  padding: 0 4px;
+  border-radius: 14px;
+  color: #fff;
+  background: #4AC29A;
+  background: -webkit-linear-gradient(to bottom, #BDFFF3, #4AC29A);
+  background: linear-gradient(to bottom, #4AC29A, #7fd2c3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+
+  .crown {
+    background-image: url(../../../assets/icon/crown.svg);
+    height: 48px;
+    width: 48px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+
+  &.eye {
+    background: #2CB9B0;
+  }
+
+  ion-icon {
+    color: #FFFFFF;
+    font-size: 18px;
+  }
+}
+
+ion-icon.custom {
+  &.logout {
+    background: url("../../../assets/icon/menu/logout.svg");
+  }
+
+  &.person {
+    background: url("../../../assets/icon/menu/person.svg");
+  }
+
+  &.heart {
+    background: url("../../../assets/icon/menu/heart.svg");
+  }
+
+  &.settings {
+    background: url("../../../assets/icon/menu/settings.svg");
+  }
+
+  background-size: cover !important;
+  font-size: 36px;
+  margin-right: 14px;
+}
+
+
+ion-button {
+  margin-top: 1.4rem;
+  --background: #fff;
+  color: #000;
+  font-weight: bold;
+
+  span {
+    margin-right: auto;
+  }
+}
+
+.highlight {
+  color: var(--ion-color-primary);
+}
+
+
+.footer {
+  background: url(../../../assets/img/bg/colorful/1.svg) no-repeat;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-size: contain;
+  background-position: bottom center;
+  height: 45%;
+}
+
+@media all and (max-width: 375px) {
+  .subscription-bar {
+    p {
+      margin: 0 0 8px;
+    }
+  }
+}
+

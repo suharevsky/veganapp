@@ -1,0 +1,74 @@
+<div class="spotify-highlights">
+  <div class="section-title">
+    My Top Spotify Artists
+  </div>
+
+  <div class="custom-pagination">
+    <div *ngFor="let bullet of items; let i = index" class="pagination-bullet" [ngClass]="{'pagination-bullet-active': activeIndex === i}"></div>
+  </div>
+
+  <ion-slides #slides (ionSlideDidChange)="onSlideChange()">
+    <ion-slide *ngFor="let i of items">
+      <ion-row class="highlight-slide">
+        <ion-col>
+          <div class="highlight-item">
+            <div class="album-artwork">
+              <div class="album-cover background-img" [style.backgroundImage]="'url(assets/img/album.png)'"></div>
+              <ion-row class="ion-justify-content-center ion-align-items-center">
+                <div class="album-artwork-overlay">
+                  <ion-button color="white" class="button-custom button-icon text-primary">
+                    <ion-icon slot="icon-only" name="play"></ion-icon>
+                  </ion-button>
+                </div>
+              </ion-row>
+            </div>
+            <div class="item-caption">
+              <div class="item-artist">
+                <div class="text-sm">Red Hot Chili Peppers</div>
+                </div>
+              <div class="item-title">
+                <ion-text color="medium"><div class="text-xs">Californication</div></ion-text>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="highlight-item">
+            <div class="album-artwork">
+              <div class="album-cover background-img" [style.backgroundImage]="'url(assets/img/album2.png)'"></div>
+              <ion-row class="ion-justify-content-center ion-align-items-center">
+                <div class="album-artwork-overlay">
+                  <ion-button color="white" class="button-custom button-icon text-primary">
+                    <ion-icon slot="icon-only" name="play"></ion-icon>
+                  </ion-button>
+                </div>
+              </ion-row>
+            </div>
+            <div class="item-caption">
+              <div class="item-artist">
+                <div class="text-sm">Green Day</div>
+                </div>
+              <div class="item-title">
+                <ion-text color="medium"><div class="text-xs">Basket Case</div></ion-text>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="spotify-connect">
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col>
+        <ion-text color="medium"><div class="text-xs">Share your Spotify Music Interests</div></ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button color="success" size="small">
+        	<ion-icon name="logo-rss" slot="start"></ion-icon>
+          LINK SPOTIFY
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

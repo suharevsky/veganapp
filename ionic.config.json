@@ -1,0 +1,7 @@
+{
+  "name": "tinder-5",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

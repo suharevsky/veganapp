@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "tinder-5",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

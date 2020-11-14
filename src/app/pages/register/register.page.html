@@ -1,0 +1,34 @@
+<ion-content force-overscroll="false">
+  <div class="header"></div>
+  <div class="bg-white">
+    <div class="inner-content">
+      <h1>Create account</h1>
+      <p class="description">Let’s us know what your name, email, and your password</p>
+      <div class="form">
+        <ion-input (ionFocus)="this.uiComponent.focusIn()" (focusout)="this.uiComponent.focusOut()" placeholder="Your Email" type="email">
+          <ion-icon name="mail-outline"></ion-icon>
+          <!--
+                              <ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>
+          -->
+        </ion-input>
+        <ion-input (ionFocus)="this.uiComponent.focusIn()" (focusout)="this.uiComponent.focusOut()" placeholder="Your Password" type="password">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <!--<ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>-->
+        </ion-input>
+        <ion-input (ionFocus)="this.uiComponent.focusIn()" (focusout)="this.uiComponent.focusOut()" placeholder="Confirm Password" type="password">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <!--<ion-icon class="icon-valid" name="checkmark-circle"></ion-icon>-->
+        </ion-input>
+        <ion-button (click)="register()">Register</ion-button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="social">
+      <img src="../../../assets/icon/facebook.svg" alt="facebook">
+      <img src="../../../assets/icon/google.svg" alt="google">
+      <img src="../../../assets/icon/apple.svg" alt="apple">
+    </div>
+    <p (click)="back()">Already have an account? <span class="highlight">Login here</span></p>
+  </div>
+</ion-content>

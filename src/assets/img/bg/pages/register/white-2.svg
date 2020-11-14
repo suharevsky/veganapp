@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="555px" viewBox="0 0 375 555" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg</title>
+    <g id="UI-KIT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M60,-95 L315,-95 C348.137085,-95 375,-68.137085 375,-35 L375,300.074468 C375,344.257248 339.18278,380.074468 295,380.074468 L80,380.074468 C35.81722,380.074468 -5.41083001e-15,415.891688 0,460.074468 L0,555 L0,555 L0,-35 C-4.05812251e-15,-68.137085 26.862915,-95 60,-95 Z" id="bg" fill="#FFFFFF" fill-rule="nonzero" transform="translate(187.500000, 230.000000) scale(-1, -1) translate(-187.500000, -230.000000) "></path>
+    </g>
+</svg>
+
+

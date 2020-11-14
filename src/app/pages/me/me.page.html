@@ -1,0 +1,104 @@
+<!--<ion-header>
+    <ion-toolbar class="toolbar-custom toolbar-no-border profile-toolbar">
+        <ion-title>
+            <ion-icon name="person" class="active"></ion-icon>
+        </ion-title>
+        <ion-buttons slot="end" (click)="goToExplore()">
+            <img src="assets/img/logo_small_bw.png" width="24" alt="">
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content force-overscroll="false" class="me-page">
+    <div class="vertical-layout">
+        <div class="bg-primary section-upper">
+            <div class="me-header" (click)="editUser()">
+                <ion-avatar class="avatar">
+                    <img src="{{userService.getMainPhoto()}}" alt="">
+                </ion-avatar>
+                <div class="me-title">
+                    {{userService.getUsername()}}
+                </div>
+            </div>
+            <ion-col class="menu" size="auto">
+                <ion-button (click)="viewEditProfile()" expand="full">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    <span>Edit info</span></ion-button>
+                <ion-button (click)="viewPhotos()" expand="full">
+                    <ion-icon name="images-outline"></ion-icon>
+                    <span>Add media</span></ion-button>
+                <ion-button (click)="viewSettings()" expand="full">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <span>Settings</span></ion-button>
+            </ion-col>
+        </div>
+
+        &lt;!&ndash;<div class="section-lower has-oval">
+            <div class="slide-intro">
+                <plus-intro></plus-intro>
+            </div>
+            <div class="ion-text-center">
+                <ion-button
+                        color="white"
+                        class="button-custom text-primary button-tinder-plus"
+                        (click)="viewTinderGold()">
+                    MY TINDER PLUS
+                </ion-button>
+            </div>
+        </div>&ndash;&gt;
+    </div>
+</ion-content>-->
+
+<ion-content force-overscroll="false">
+    <ion-header>
+        <ion-toolbar class="toolbar-custom toolbar-no-border">
+            <ion-buttons (click)="getPage('explore')">
+                <ion-icon name="close-outline"></ion-icon>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <div class="header">
+        <div class="me-header" (click)="getPage('edit-user')">
+            <ion-avatar class="avatar">
+                <img src="{{userService.getMainPhoto()}}" alt="">
+            </ion-avatar>
+            <div class="me-title">
+                {{userService.getUsername()}}
+            </div>
+        </div>
+    </div>
+    <div class="bg-white">
+        <div class="inner-content">
+            <div class="subscription-bar">
+                <div class="subscription-bar__col text">
+                    <h2>Try Premium Features</h2>
+                    <p>Get rid of all limits</p>
+                </div>
+                <div class="subscription-bar__col crown">
+
+                </div>
+            </div>
+            <ion-col class="menu" size="auto">
+                <ion-button (click)="viewEditProfile()" expand="full">
+                    <ion-icon class="custom person"></ion-icon>
+                    <span>Edit info</span></ion-button>
+                <ion-button (click)="getPage('explore', { list : 'lookedMe'})" expand="full">
+                    <div class="icon-wrap eye">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <span>Looked Me</span></ion-button>
+                <ion-button (click)="getPage('explore')" expand="full">
+                    <ion-icon class="custom heart"></ion-icon>
+                    <span>Add media</span></ion-button>
+                <ion-button (click)="viewSettings()" expand="full">
+                    <ion-icon class="custom settings"></ion-icon>
+                    <span>Settings</span></ion-button>
+                <ion-button (click)="logout()" expand="full">
+                    <ion-icon class="custom logout"></ion-icon>
+                    <span>Logout</span></ion-button>
+            </ion-col>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</ion-content>

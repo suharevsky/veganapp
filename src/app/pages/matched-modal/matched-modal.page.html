@@ -1,0 +1,40 @@
+<ion-content force-overscroll="false">
+  <div class="matched-container">
+    <div [style.backgroundImage]="'url(' + user.profile_image_url + ')'" class="background-img h-full"></div>
+    <div class="matched-overlay">
+      <div class="matched-title">
+        <div class="text-its">IT'S A</div>
+        <div class="text-match">
+          <div>MATCH!</div>
+          <div>MATCH!</div>
+          <div>MATCH!</div>
+        </div>
+      </div>
+
+      <div class="matched-input m-b">
+        <div class="label">
+          <ion-icon name="heart"></ion-icon>
+          <div>
+            Ionic Framework likes you too!
+          </div>
+        </div>
+
+        <div class="wrapper">
+          <ion-toolbar>
+            <ion-input class="m-l" placeholder="Say something nice"></ion-input>
+            <ion-buttons slot="end">
+              <ion-button type="submit" fill="clear" size="small" color="secondary" class="button-submit" (click)="close()">
+                SEND
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </div>
+      </div>
+
+      <ion-button fill="clear" color="primary" (click)="close()">
+        Back to Tinder
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

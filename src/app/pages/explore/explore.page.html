@@ -1,0 +1,189 @@
+<ion-content force-overscroll="false">
+    <ion-header>
+        <ion-toolbar class="toolbar-custom toolbar-no-border">
+            <ion-buttons slot="start" (click)="goToMe()">
+                <ion-icon name="reorder-three-outline"></ion-icon>
+            </ion-buttons>
+            <ion-title>
+                <ion-segment (ionChange)="onSegmentChange()" [(ngModel)]="segmentView" class="segment-fit">
+                    <ion-segment-button value="swiping">
+                        <img *ngIf="segmentView === 'swiping'" src="assets/img/logo_small.png" width="28" alt="">
+                        <img *ngIf="segmentView !== 'swiping'" src="assets/img/logo_small_bw.png" width="28" alt="">
+                    </ion-segment-button>
+                    <ion-segment-button value="results">
+                        <ion-icon name="compass-outline"></ion-icon>
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-title>
+            <ion-buttons slot="end" (click)="goToMatches()">
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <div [ngSwitch]="segmentView" class="h-full page-segments">
+        <!-- SWIPE -->
+        <div *ngSwitchCase="'swiping'" class="h-full">
+            <!-- Loading screen -->
+            <div [hidden]="isLoading" class="scroll-horizontal matches-list">
+                <div *ngIf="users" class="scroll-item matches-item matches-item-likes">
+                    <div class="profile-image">
+                        <div class="profile-image-inner">
+                            <random-avatar [customSize]="'56'"></random-avatar>
+                        </div>
+
+                        <div class="likes-count">
+                            99+
+                        </div>
+                        <div class="like-gold">
+                            <ion-icon name="heart"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="scroll-item-title text-ellipsis">Likes</div>
+                </div>
+                <div class="scroll-item matches-item" *ngFor="let user of users" >
+                    <div class="profile-image" (click)="viewProfile(user)">
+                        <div class="user-photo"
+                             [ngStyle]="{background: 'url(' + httpService.config.baseUrl + user.photo + ')'}"></div>
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="scroll-item-title text-ellipsis">{{user.username}}</div>
+                </div>
+
+                <div *ngIf="!users">
+                    <div class="scroll-item matches-item" *ngFor="let i of [0,1,2,3,4,5,6]">
+                        <div class="profile-image">
+                            <ion-skeleton-text style="border-radius: 50%;" animated></ion-skeleton-text>
+                        </div>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="h-full" [hidden]="!isLoading">
+                <ion-row class="h-full ion-justify-content-center ion-align-items-center">
+                    <ripple-loader [imageUrl]="userService.getMainPhoto()"></ripple-loader>
+                </ion-row>
+            </div>
+
+            <div [hidden]="isLoading">
+                <div class="stage">
+                    <div id="stacked-cards-block" class="stackedcards stackedcards--animatable init">
+                        <div class="stackedcards-container">
+                            <div *ngFor="let user of users" class="card user-id{{user.id}}">
+                                <div class="card-content">
+                                    <div class="card-image"><img src="{{ httpService.config.baseUrl + user.photo}}"
+                                                                 width="100%" height="100%"/></div>
+                                    <div class="card-titles">
+                                        <h1>{{user.username}}</h1>
+                                        <h3>{{user.area_name}}</h3>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="popular-destinations-text">More Photos</div>
+                                    <div class="popular-destinations-images">
+                                        <div class="circle"><img src="https://image.ibb.co/jmEYL7/adventure_1.jpg"
+                                                                 width="100%" height="100%"/></div>
+                                        <div class="circle"><img src="https://image.ibb.co/nsCynn/adventure_2.jpg"
+                                                                 width="100%" height="100%"/></div>
+                                        <div class="circle"><img src="https://image.ibb.co/hmsL07/adventure_3.jpg"
+                                                                 width="100%" height="100%"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stackedcards--animatable stackedcards-overlay top"><img
+                                src="https://image.ibb.co/m1ykYS/rank_army_star_2_3x.png" width="auto" height="auto"/>
+                        </div>
+                        <div class="stackedcards--animatable stackedcards-overlay right"><img
+                                src="https://image.ibb.co/dCuESn/Path_3x.png" width="auto" height="auto"/></div>
+                        <div class="stackedcards--animatable stackedcards-overlay left"><img
+                                src="https://image.ibb.co/heTxf7/20_status_close_3x.png" width="auto" height="auto"/>
+                        </div>
+                    </div>
+                    <div class="global-actions">
+                        <div class="left-action">
+                            <ion-icon class="close" name="close-outline"></ion-icon>
+                        </div>
+                        <div class="top-action">
+                            <ion-icon class="star" name="star"></ion-icon>
+                        </div>
+                        <div class="right-action">
+                            <ion-icon class="heart" name="heart-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="final-state hidden"><h2>Got it! We received your preferences! <br/> To submit again, press
+                    F5.</h2></div>
+                <div class="bg-mosaic"></div>
+                <div class="footer" style="height: 30%; overflow: hidden;">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M0.00,49.98 C262.97,78.45 257.89,34.03 500.00,49.98 L522.57,194.89 L0.00,150.00 Z"
+                              style="stroke: none; fill: #0C0D34;"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIKES AND TOP PICKS -->
+        <div *ngSwitchCase="'results'">
+            <div class="boost-promotion" (click)="viewTinderGold()">
+                <ion-text color="boost">Up to 1000x more views</ion-text>
+
+                <ion-button expand="block" shape="round" color="boost">
+                    SUPER BOOST NOW
+                </ion-button>
+            </div>
+
+            <!--<ion-segment class="segment-custom" [(ngModel)]="boostView" mode="md">
+              <ion-segment-button value="likes">
+                9 likes
+              </ion-segment-button>
+              <ion-segment-button value="toppicks">
+                10 Top Picks
+              </ion-segment-button>
+            </ion-segment>-->
+
+            <div [ngSwitch]="boostView">
+                <!-- LIKES -->
+                <div class="segment-view" *ngSwitchCase="'likes'">
+                    <div class="offer-message">
+                        Upgrade to Tinder Gold to see people
+                        <br> who already liked you.
+                    </div>
+
+                    <ion-row>
+                        <ion-col size="6" *ngFor="let user of users">
+                            <person-card (click)="viewProfile(user)" [data]="user"></person-card>
+                        </ion-col>
+                        <ion-infinite-scroll threshold="100px" (ionInfinite)="moreUsers($event)">
+                            <ion-infinite-scroll-content
+                                    loadingSpinner="dots"
+                                    loadingText="Loading more data...">
+                            </ion-infinite-scroll-content>
+                        </ion-infinite-scroll>
+                    </ion-row>
+                </div>
+
+                <!-- TOP PICKS -->
+                <!-- <div class="segment-view" *ngSwitchCase="'toppicks'">
+                   <div class="offer-message">
+                     Featured profiles of the day, <br>picked just for you
+                   </div>
+
+                   <ion-row>
+                     <ion-col size="6" *ngFor="let user of users">
+                       <person-card [data]="user"></person-card>
+                     </ion-col>
+                   </ion-row>
+                 </div>-->
+
+                <ion-button (click)="filterResults()" class="filter-users bg-secondary">
+                    <ion-icon name="options-outline"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

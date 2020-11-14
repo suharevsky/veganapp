@@ -1,0 +1,126 @@
+<ion-header translucent="true">
+    <ion-toolbar>
+        <ion-title>Inbox</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button color="white"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg-primary" fullscreen="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+            <ion-title size="large">Inbox</ion-title>
+        </ion-toolbar>
+
+    </ion-header>
+    <div [ngSwitch]="segmentView">
+        <!-- MESSAGES -->
+        <div *ngSwitchCase="'0'">
+            <div style="height: 30px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #2CB9B0;"></path></svg></div>
+            <div>
+                <div class="wrapper">
+                        <div>
+                            <ion-searchbar placeholder="Search Matches" (ionInput)="searchMatch($event)" class="search-bar"></ion-searchbar>
+                        </div>
+                    <ion-text color="primary">
+                        <strong>New Matches</strong>
+                    </ion-text>
+                </div>
+
+                <div class="scroll-horizontal matches-list">
+                    <div *ngIf="matches" class="scroll-item matches-item matches-item-likes">
+                        <div class="profile-image">
+                            <div class="profile-image-inner">
+                                <random-avatar [customSize]="'56'"></random-avatar>
+                            </div>
+
+                            <div class="likes-count">
+                                99+
+                            </div>
+                            <div class="like-gold">
+                                <ion-icon name="heart"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="scroll-item-title text-ellipsis">Likes</div>
+                    </div>
+                    <div class="scroll-item matches-item" *ngFor="let match of matchesResults">
+                        <div class="profile-image" (click)="goToChat(match)">
+                            <div class="user-photo"
+                                 [ngStyle]="{background: 'url(' + httpService.config.baseUrl + match.photo + ')'}"></div>
+                            <div class="online-status"></div>
+                        </div>
+                        <div class="scroll-item-title text-ellipsis">{{match.username}}</div>
+                    </div>
+
+                    <div *ngIf="!matches">
+                        <div class="scroll-item matches-item" *ngFor="let i of [].constructor(13)">
+                            <div class="profile-image">
+                                <ion-skeleton-text style="border-radius: 50%;" animated></ion-skeleton-text>
+                            </div>
+                            <h3>
+                                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="wrapper">
+                    <ion-text color="primary">
+                        <strong>Messages</strong>
+                    </ion-text>
+                </div>
+                <div class="message-list">
+                    <ion-row *ngFor="let dialogue of dialogues" class="dialog-item ion-align-items-center"
+                             (click)="goToChat(dialogue)">
+                        <ion-col size="auto">
+                            <div class="user-photo"
+                                 [ngStyle]="{background: 'url(' + httpService.config.baseUrl + dialogue.photo + ')'}"></div>
+                        </ion-col>
+                        <ion-col class="message-item-text">
+                            <div>
+                                <div class="user-name">{{dialogue.username}}</div>
+                                <ion-text color="medium">
+                                    <div>{{dialogue.message}}</div>
+                                </ion-text>
+                            </div>
+                        </ion-col>
+                        <ion-col class="counter">
+                            <ion-badge *ngIf="dialogue.newMessagesNumber > 0">{{dialogue.newMessagesNumber}}</ion-badge>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Skeleton screen -->
+    <div *ngIf="!dialogues">
+        <ion-list class="skeleton">
+
+            <ion-item *ngFor="let i of [].constructor(9)">
+                <ion-thumbnail slot="start">
+                    <ion-skeleton-text style="border-radius: 50%;" animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-label>
+                    <h3>
+                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
