@@ -64,8 +64,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordPageModule)
   },
   {
-    path: 'change-photos',
-    loadChildren: () => import('./pages/change-photos/change-photos.module').then(m => m.ChangePhotosPageModule)
+    path: 'user-photos',
+    loadChildren: () => import('./pages/user-photos/user-photos.module').then(m => m.UserPhotosPageModule)
   },
   {
     path: 'contact-us',
