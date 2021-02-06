@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LandingPage } from './landing.page';
+import {SocialLinksComponent} from '../../components/social-links/social-links.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LandingPage]
+  exports: [
+    SocialLinksComponent
+  ],
+  declarations: [LandingPage, SocialLinksComponent]
 })
 export class LandingPageModule {}

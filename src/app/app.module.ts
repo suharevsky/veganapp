@@ -10,7 +10,6 @@ import {TapticEngine} from '@ionic-native/taptic-engine/ngx';
 import {IonicStorageModule} from '@ionic/storage';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SharedModule} from './components/sharedModule';
@@ -25,6 +24,8 @@ import {UIComponent} from './components/ui/ui.component';
 import {FilterResultsPageModule} from './pages/filter-results/filter-results.module';
 import {ChatPageModule} from './pages/chat/chat.module';
 import { Network } from '@ionic-native/network/ngx';
+
+import {FooterBtnCloseComponent} from './components/footer-btn-close/footer-btn-close.component';
 
 @NgModule({
     declarations: [AppComponent],
@@ -54,6 +55,7 @@ import { Network } from '@ionic-native/network/ngx';
         HttpClientModule
     ],
     providers: [
+        FooterBtnCloseComponent,
         UIComponent,
         StatusBar,
         Keyboard,

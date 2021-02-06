@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ForgotPasswordPageRoutingModule } from './forgot-password-routing.module';
 
 import { ForgotPasswordPage } from './forgot-password.page';
+import {FooterBtnCloseComponent} from '../../components/footer-btn-close/footer-btn-close.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { ForgotPasswordPage } from './forgot-password.page';
     IonicModule,
     ForgotPasswordPageRoutingModule
   ],
-  declarations: [ForgotPasswordPage]
+  exports: [
+    FooterBtnCloseComponent
+  ],
+  declarations: [ForgotPasswordPage, FooterBtnCloseComponent]
 })
 export class ForgotPasswordPageModule {}
