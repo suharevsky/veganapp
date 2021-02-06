@@ -23,12 +23,16 @@ export class UserService {
         return this.mainPhoto;
     }
 
-    public setMainPhoto(url: string) {
+    public setMainPhoto(url: string): void {
         this.mainPhoto = url;
     }
 
-    public getIsPay() {
+    public getIsPay(): boolean {
         return this.isPay;
+    }
+
+    public getUserById(id) {
+        return this.user;
     }
 
     public getUser() {

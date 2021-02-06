@@ -34,11 +34,7 @@ export class ForgotPasswordPage implements OnInit {
     }
 
     getPage(page: string) {
-        this.router.navigate(['/' + page]);
-    }
-
-    back() {
-        this.navCtrl.back();
+        this.router.navigate([`/${page}`]);
     }
 
     validate(response: any) {

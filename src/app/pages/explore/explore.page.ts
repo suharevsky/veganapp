@@ -11,6 +11,7 @@ import stackedCards, {subject} from '../../components/stackedCards';
 import {TinderGoldPage} from '../tinder-gold/tinder-gold.page';
 import {FilterResultsPage} from '../filter-results/filter-results.page';
 import {Router} from '@angular/router';
+import {IUser} from '../../interfaces/user';
 
 @Component({
     selector: 'app-explore',
@@ -18,7 +19,7 @@ import {Router} from '@angular/router';
     styleUrls: ['./explore.page.scss'],
 })
 export class ExplorePage implements OnInit {
-    users: any;
+    users: IUser[];
     currentUser: any;
     isLoading = true;
     segmentView = 'swiping';
@@ -41,7 +42,6 @@ export class ExplorePage implements OnInit {
     }
 
     ngOnInit() {
-
         if ( this.routerService.getParams()) {
             // @ts-ignore
             this.params = { action: '', filter: 'lastActivity', page: 1, list: this.routerService.getParams().list,
@@ -53,7 +53,7 @@ export class ExplorePage implements OnInit {
 
         this.getData();
 
-        this.getLocation();
+        // this.getLocation();
     }
 
     moreUsers(event) {
@@ -118,7 +118,7 @@ export class ExplorePage implements OnInit {
         this.router.navigate(['/' + page]);
     }
 
-    async getData() {
+    getData() {
         this.paramsStr = JSON.stringify(this.params);
         // tslint:disable-next-line:variable-name
         const user_id = null;
